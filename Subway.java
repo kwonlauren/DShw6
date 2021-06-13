@@ -1,14 +1,17 @@
 import java.io.*;
+import java.util.PriorityQueue;
 
 public class Subway {
     public static void main(String[] args) throws Exception{
         Graph map = new Graph();
+        nametoNum ntn = new nametoNum();
         BufferedReader br = new BufferedReader(new FileReader(args[0]));
         String line;
         while (!(line = br.readLine()).isEmpty()) {
             //graph에 vertex 추가
             String[] strs = line.split(" ");
             map.addVertex(strs[0], strs[1], strs[2]);
+            ntn.add(strs[1], strs[0]);
         }
         while ((line = br.readLine()) != null) {
             //graph에 edge 추가
@@ -32,6 +35,7 @@ public class Subway {
     {
         //origin, destination은 역 이름(고유번호x)
         //초기화
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
 
     }
 }
